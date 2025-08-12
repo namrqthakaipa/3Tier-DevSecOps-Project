@@ -48,4 +48,4 @@ spec:
     - hosts:
         - namkaipa.site
         - www.namkaipa.site
-      secretName: Namratha-co-tls
+      secretName: namratha-co-tls
