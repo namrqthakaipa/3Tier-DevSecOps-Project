@@ -29,6 +29,16 @@ sudo apt-get update && sudo apt-get install terraform -y
 terraform -version
 ```
 
+## Initialize the terraform
+```bash
+terraform init
+```
+
+## Run the terraform script
+```bash
+terraform apply --auto-approve
+```
+
 
 ## ☸️ Configure kubeconfig for EKS
 
