@@ -86,7 +86,7 @@ To provision the required infrastructure, refer to the repository below:
 
 [**Terraform-Provisioning Repository**](https://github.com/namrqthakaipa/Terraform-Provisioning.git)
 
-### Steps to Set Up
+### 🚀 Steps to Set Up
 
 ```bash
 # Clone the repository
@@ -98,11 +98,8 @@ cd Terraform-Provisioning
 # Initialize Terraform
 terraform init
 
-# Preview planned changes
-terraform plan
-
 # Apply infrastructure changes
-terraform apply
+terraform apply --auto-create
 ```
 
 
@@ -128,5 +125,6 @@ terraform apply
 *🔒 Securing applications, one pipeline at a time | Built by Namratha Kaipa - DevSecOps Engineer*
 
 </div>
+
 
 
