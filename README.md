@@ -10,8 +10,6 @@
 
 **🚀 End-to-End DevSecOps Pipeline with Multi-Layer Security Scanning & Automated EKS Deployment**
 
-*Production-ready 3-tier application with integrated security at every stage*
-
 </div>
 
 ---
@@ -20,50 +18,14 @@
 
 **3-Tier-DevSecOps-Pipeline** is a complete enterprise-grade implementation showcasing security-first development practices. This project demonstrates how to build, secure, and deploy a full-stack application with automated vulnerability detection and zero-trust deployment strategies on AWS EKS.
 
+
 ### 🏗️ **3-Tier Architecture**
+
 ```
 🌐 Frontend Layer    →    Node.js Express Application
 ⚙️ Backend Layer     →    RESTful API with Business Logic  
 🗄️ Database Layer    →    MySQL with Encrypted Connections
 ```
-
----
-
-## 🛠️ **Tech Stack**
-
-<table>
-<tr>
-<td>
-
-**Application Stack**
-- Node.js 18 + Express.js
-- MySQL 8.0 Database
-- Docker Containerization
-- Kubernetes Orchestration
-
-</td>
-<td>
-
-**Security Tools** 🛡️
-- **GitLeaks** - Secret Detection
-- **SonarQube** - Code Analysis  
-- **Trivy** - Vulnerability Scanning
-- **AWS Secrets Manager**
-
-</td>
-<td>
-
-**Infrastructure**
-- AWS EKS Cluster
-- Docker Registry (ECR)
-- GitHub Actions CI/CD
-- Terraform IaC
-
-</td>
-</tr>
-</table>
-
----
 
 ## 🔒 **Security-First DevSecOps Pipeline**
 
@@ -74,13 +36,6 @@ graph LR
     C --> D[🐳 Docker Build]
     D --> E[🛡️ Trivy Scan]
     E --> F[☸️ EKS Deploy]
-    
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e8
-    style E fill:#ffebee
-    style F fill:#e0f2f1
 ```
 
 ### **🚨 Security Gates**
@@ -96,8 +51,8 @@ graph LR
 ### **Prerequisites**
 ```bash
 ✅ AWS CLI configured
-✅ Docker & kubectl installed  
-✅ Node.js 18+
+✅ Jenkins, Docker & kubectl installed  
+✅ Node.js 23
 ```
 
 ### **1️⃣ Setup & Run**
@@ -117,7 +72,6 @@ npm start
 # Start react server
 cd client
 npm start
-
 ```
 
 ### **2️⃣ EKS Deployment**
@@ -126,44 +80,55 @@ npm start
 📖 Refer: eks_setup.md
 ```
 
-### **3️⃣ Deploy Pipeline**
+## 🛠️ **Infrastructure Setup**
+
+### **EKS Cluster Components**
+- **VPC**: Custom VPC with public subnets across 2 AZs
+- **Worker Nodes**: 3 x t2.medium instances
+- **Storage**: AWS EBS CSI driver for persistent volumes
+- **Networking**: NGINX Ingress Controller with SSL/TLS
+- **RBAC**: Jenkins service account with proper permissions
+
+### **CI/CD Infrastructure**
+- **Jenkins Server**: t2.medium with Docker & security tools
+- **SonarQube Server**: t2.medium for code quality analysis
+- **Automated Pipeline**: Webhook-triggered deployments
+
+## 🔐 **RBAC Configuration**
+
+Create Kubernetes resources for secure Jenkins access:
+
 ```bash
-# Trigger automated deployment
-git push origin main
+# Apply RBAC configurations
+kubectl apply -f sa.yaml        # ServiceAccount
+kubectl apply -f role.yaml      # Namespace permissions
+kubectl apply -f rolebinding.yaml
+kubectl apply -f cr.yaml        # Cluster permissions
+kubectl apply -f crb.yaml
 ```
----
 
-## 📊 **Key Features**
+## 📦 **Deployment**
 
-<div align="center">
+### **Kubernetes Manifests**
+- `mysql.yaml` - Database deployment with persistent storage
+- `backend.yaml` - API deployment with ConfigMaps & Secrets
+- `frontend.yaml` - Web application with LoadBalancer service
+- `sc.yaml` - StorageClass for EBS volumes
 
-| 🛡️ **Security** | 🚀 **Performance** | 📈 **Monitoring** |
-|:---:|:---:|:---:|
-| Zero secrets in code | < 200ms API response | Real-time dashboards |
-| Automated vuln scanning | Zero-downtime deployments | CloudWatch integration |
-| Network micro-segmentation | Auto-scaling pods | Alert notifications |
+## 🤝 **Contributing**
 
-</div>
-
----
-
-
-## 🤝 **Getting Started**
-
-1. **⭐ Star this repo** 
-2. **🍴 Fork** 
-3. **📖 Follow** 
-4. **🚀 Deploy** 
+1. Fork the repository
+2. Create a feature branch
+3. Run security scans locally
+4. Submit a pull request
 
 ---
 
 <div align="center">
-
 
 **Connect with me:**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/namratha-kaipa-m/)
-
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/namrqthakaipa)
 
 ---
