@@ -80,11 +80,29 @@ npm start
 📖 Refer: eks_setup.md
 ```
 
-## 🛠️ **Infrastructure Setup**
+## 🛠️ Infrastructure Setup
+
+To provision the required infrastructure, refer to the repository below:  
+
+[**Terraform-Provisioning Repository**](https://github.com/namrqthakaipa/Terraform-Provisioning.git)
+
+### Steps to Set Up
 
 ```bash
-# refer the Repo https://github.com/namrqthakaipa/Terraform-Provisioning.git
-To seupt the infrastructure.
+# Clone the repository
+git clone https://github.com/namrqthakaipa/Terraform-Provisioning.git
+
+# Navigate to the project directory
+cd Terraform-Provisioning
+
+# Initialize Terraform
+terraform init
+
+# Preview planned changes
+terraform plan
+
+# Apply infrastructure changes
+terraform apply
 ```
 
 
@@ -110,4 +128,5 @@ To seupt the infrastructure.
 *🔒 Securing applications, one pipeline at a time | Built by Namratha Kaipa - DevSecOps Engineer*
 
 </div>
+
 
