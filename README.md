@@ -82,38 +82,12 @@ npm start
 
 ## 🛠️ **Infrastructure Setup**
 
-### **EKS Cluster Components**
-- **VPC**: Custom VPC with public subnets across 2 AZs
-- **Worker Nodes**: 3 x t2.medium instances
-- **Storage**: AWS EBS CSI driver for persistent volumes
-- **Networking**: NGINX Ingress Controller with SSL/TLS
-- **RBAC**: Jenkins service account with proper permissions
-
-### **CI/CD Infrastructure**
-- **Jenkins Server**: t2.medium with Docker & security tools
-- **SonarQube Server**: t2.medium for code quality analysis
-- **Automated Pipeline**: Webhook-triggered deployments
-
-## 🔐 **RBAC Configuration**
-
-Create Kubernetes resources for secure Jenkins access:
-
 ```bash
-# Apply RBAC configurations
-kubectl apply -f sa.yaml        # ServiceAccount
-kubectl apply -f role.yaml      # Namespace permissions
-kubectl apply -f rolebinding.yaml
-kubectl apply -f cr.yaml        # Cluster permissions
-kubectl apply -f crb.yaml
+# refer the Repo https://github.com/namrqthakaipa/Terraform-Provisioning.git
+To seupt the infrastructure.
 ```
 
-## 📦 **Deployment**
 
-### **Kubernetes Manifests**
-- `mysql.yaml` - Database deployment with persistent storage
-- `backend.yaml` - API deployment with ConfigMaps & Secrets
-- `frontend.yaml` - Web application with LoadBalancer service
-- `sc.yaml` - StorageClass for EBS volumes
 
 ## 🤝 **Contributing**
 
@@ -136,3 +110,4 @@ kubectl apply -f crb.yaml
 *🔒 Securing applications, one pipeline at a time | Built by Namratha Kaipa - DevSecOps Engineer*
 
 </div>
+
