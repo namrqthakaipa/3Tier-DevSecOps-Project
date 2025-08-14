@@ -29,18 +29,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    try {
-      await axios.post('/api/auth/register', { name, email, password });
-      return { success: true };
-    } catch (err) {
-      return {
-        success: false,
-        message: err.response?.data?.message || { message: err.message || 'Registration failed' },
-        const thrown = new Error(error.message || 'Registration failed');
-        thrown.response = err.response; 
-        throw thrown;
-      };
+  try {
+    await axios.post('/api/auth/register', { name, email, password });
+    return { success: true };
+  } catch (err) {
+    const thrown = new Error(err.message || 'Registration failed');
+    thrown.response = err.response;
+    throw thrown;
     }
+    
   };
 
   const logout = () => {
