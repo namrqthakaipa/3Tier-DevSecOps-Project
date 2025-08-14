@@ -10,7 +10,7 @@ const query = util.promisify(db.query).bind(db);
 
 exports.register = async (req, res) => {
   const { name, email, password, role } = req.body;
-
+  console.log('Register attempt:', { name, email });
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Missing fields' });
   }
@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
       'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
       [name, email, hashedPassword, role || 'viewer']
     );
-
+    console.log('Registration success:', { insertId: result.insertId, email });
     res.status(201).json({ message: 'User registered', id: result.insertId });
   } catch (err) {
     console.error('Registration Error:', err);
